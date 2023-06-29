@@ -1,12 +1,14 @@
 import React,{useEffect} from 'react'
 import {Route,Routes,useNavigate,useLocation} from "react-router-dom";
-import Main from './components/Main';
+import Main from './pages/home/Main';
 import './App.css';
-import { SignIn } from './components/SignIn';
-import { SignUp } from './components/signup';
+import { SignIn } from './pages/siginin';
+import { SignUp } from './pages/siginup/';
+import Banner from './pages/home/Banner';
 function App() {
   return (
     <>
+    <Banner/>
     <Routes>
         <Route path ="/" element={<Main/>}></Route>
         <Route path="/signup" element={<SignUp/>}></Route>

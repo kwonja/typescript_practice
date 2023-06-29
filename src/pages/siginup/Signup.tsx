@@ -1,27 +1,41 @@
-import React,{useEffect,useState} from 'react'
+import React,{useEffect,useState,ChangeEvent} from 'react'
 import {useNavigate } from "react-router-dom";
 import { signup } from '../../apis/auth';
 const Signup = () =>{
     const navigate = useNavigate();
-    const [email,setEmail]=useState("")
-    const [password,setPassword]=useState("")
-    const [disable,setDisable]=useState(true)
+    const [email,setEmail]=useState<string>("")
+    const [password,setPassword]=useState<string>("")
+    const [disable,setDisable]=useState<boolean>(true)
 
-    const handleEmailchange = (e : React.ChangeEvent<HTMLInputElement>) =>{
+    const handleEmailchange = (e : ChangeEvent<HTMLInputElement>) =>{
         setEmail(e.target.value)
     }
-    const handlePasswordChange = (e : React.ChangeEvent<HTMLInputElement>) => {
+    const handlePasswordChange = (e : ChangeEvent<HTMLInputElement>) => {
         setPassword(e.target.value)
       };
-    const handleSubmit =  async(e : React.ChangeEvent<HTMLFormElement>) =>{
-        e.preventDefault();
+    const handleSubmit =  async(e : ChangeEvent<HTMLFormElement>) =>{
 
         if (email.includes('@') && password.length >= 8) //정상 회원가입
         {
-        signup(email,password)
-        navigate("/signin");
-    }
-    }
+        e.preventDefault();
+        const response = await signup(email,password)
+
+        if(response)
+        {
+          if(response.status === 201)
+          {
+            alert("회원가입에에 성공했습니다")
+            navigate("/signin");
+          }
+          else if(response.status === 400)
+          {
+            alert(response.data.message)
+          }
+        }
+        else{
+            alert("로그인에 실패했습니다.")
+        }
+    }}
     useEffect( ()=>{
 
         if (email.includes('@') && password.length >= 8) 
