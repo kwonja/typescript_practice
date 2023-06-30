@@ -6,7 +6,7 @@ const SignIn = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [disable, setDisable] = useState(true);
+  const [disable, setDisable] = useState<boolean>(true);
 
   const handleEmailchange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
