@@ -15,15 +15,14 @@ const SignIn = () => {
     setPassword(e.target.value);
   };
   const handleSubmit = async (e: ChangeEvent<HTMLFormElement>) => {
-    
-      //정상 회원가입
-      e.preventDefault();
-      const Login = async () => {
-        const response = await login(email, password);
-        setLocalStorage(response.data.access_token);
-        navigate('/todo');
-      };
-      Login();
+    //정상 회원가입
+    e.preventDefault();
+    const Login = async () => {
+      const response = await login(email, password);
+      setLocalStorage(response.data.access_token);
+      navigate('/todo');
+    };
+    Login();
   };
   return (
     <>
@@ -45,9 +44,10 @@ const SignIn = () => {
           placeholder="8자리이상"
         />
         <br />
-        <button data-testid="signin-button" disabled={
-          (checkEmail(email) && checkPassword(password)) ? false : true
-        }>
+        <button
+          data-testid="signin-button"
+          disabled={checkEmail(email) && checkPassword(password) ? false : true}
+        >
           로그인
         </button>
       </form>
