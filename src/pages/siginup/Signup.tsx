@@ -1,11 +1,11 @@
-import React, { useEffect, useState, ChangeEvent } from 'react';
+import React, {  useState, ChangeEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signup } from '../../apis/auth';
+import { checkEmail, checkPassword } from '../../utils/validation';
 const Signup = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [disable, setDisable] = useState<boolean>(true);
 
   const handleEmailchange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -14,7 +14,7 @@ const Signup = () => {
     setPassword(e.target.value);
   };
   const handleSubmit = async (e: ChangeEvent<HTMLFormElement>) => {
-    if (email.includes('@') && password.length >= 8) {
+    
       //정상 회원가입
       e.preventDefault();
       const response = await signup(email, password);
@@ -22,22 +22,14 @@ const Signup = () => {
       if (response) {
         if (response.status === 201) {
           alert('회원가입에에 성공했습니다');
-          navigate('/signin');
         } else if (response.status === 400) {
           alert(response.data.message);
         }
+        navigate('/signin');
       } else {
         alert('로그인에 실패했습니다.');
       }
-    }
   };
-  useEffect(() => {
-    if (email.includes('@') && password.length >= 8) {
-      setDisable(true);
-    } else {
-      setDisable(false);
-    }
-  }, [email, password]);
   return (
     <>
       <h2>회원가입페이지</h2>
@@ -58,7 +50,9 @@ const Signup = () => {
           placeholder="8자리이상"
         />
         <br />
-        <button data-testid="signup-button" disabled={!disable}>
+        <button data-testid="signup-button" disabled={
+          (checkEmail(email) && checkPassword(password)) ? false : true
+        }>
           회원가입
         </button>
       </form>

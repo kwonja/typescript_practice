@@ -3,7 +3,7 @@ import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
 import Main from './pages/home/Main';
 import './App.css';
 import { SignIn } from './pages/siginin';
-import { SignUp } from './pages/siginup/';
+import { SignUp } from './pages/siginup';
 import { Todo } from './pages/todo';
 import Banner from './pages/home/Banner';
 import { getLocalStorageToken } from './utils/auth';

@@ -1,12 +1,12 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../../apis/auth';
 import { setLocalStorage } from '../../utils/auth';
+import { checkEmail, checkPassword } from '../../utils/validation';
 const SignIn = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [disable, setDisable] = useState<boolean>(true);
 
   const handleEmailchange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -15,24 +15,16 @@ const SignIn = () => {
     setPassword(e.target.value);
   };
   const handleSubmit = async (e: ChangeEvent<HTMLFormElement>) => {
-    if (email.includes('@') && password.length >= 8) {
+    
       //정상 회원가입
       e.preventDefault();
-      const SignIn = async () => {
+      const Login = async () => {
         const response = await login(email, password);
         setLocalStorage(response.data.access_token);
         navigate('/todo');
       };
-      SignIn();
-    }
+      Login();
   };
-  useEffect(() => {
-    if (email.includes('@') && password.length >= 8) {
-      setDisable(true);
-    } else {
-      setDisable(false);
-    }
-  }, [email, password]);
   return (
     <>
       <h2>로그인페이지</h2>
@@ -53,7 +45,9 @@ const SignIn = () => {
           placeholder="8자리이상"
         />
         <br />
-        <button data-testid="signin-button" disabled={!disable}>
+        <button data-testid="signin-button" disabled={
+          (checkEmail(email) && checkPassword(password)) ? false : true
+        }>
           로그인
         </button>
       </form>
