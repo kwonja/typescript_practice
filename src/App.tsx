@@ -1,10 +1,6 @@
 import React, { useEffect } from 'react';
-import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
-import Main from './pages/home/Main';
+import {useNavigate, useLocation, Outlet } from 'react-router-dom';
 import './App.css';
-import { SignIn } from './pages/siginin';
-import { SignUp } from './pages/siginup';
-import { Todo } from './pages/todo';
 import Banner from './pages/home/Banner';
 import { getLocalStorageToken } from './utils/auth';
 function App() {
@@ -30,12 +26,7 @@ function App() {
   return (
     <>
       <Banner />
-      <Routes>
-        <Route path="/" element={<Main />}></Route>
-        <Route path="/signup" element={<SignUp />}></Route>
-        <Route path="/signin" element={<SignIn />}></Route>
-        <Route path="/todo" element={<Todo />}></Route>
-      </Routes>
+      <Outlet/>
     </>
   );
 }

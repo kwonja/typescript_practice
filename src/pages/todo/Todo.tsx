@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { Input, AddBtn } from '../../styles/todo';
-import { createTodo, getTodo,deleteTodo,updateTodo } from '../../apis/todo';
+import { createTodo, getTodo, deleteTodo, updateTodo } from '../../apis/todo';
 import TodoItem from './TodoItem';
 
 interface Todo {
@@ -29,14 +29,14 @@ const Todo = () => {
     setTodos(response.data);
   }, [todos]);
 
-  const HandleDelete = async(id:number) => {
-    setTodos((prev) => prev.filter((todo) => todo.id !== id));
+  const HandleDelete = async (id: number) => {
+    setTodos(prev => prev.filter(todo => todo.id !== id));
     deleteTodo(id);
   };
-  const HandleUpdate = (todo : Todo) => {
-    console.log("up")
-    setTodos((prev) =>
-      prev.map((item) => {
+  const HandleUpdate = (todo: Todo) => {
+    console.log('up');
+    setTodos(prev =>
+      prev.map(item => {
         if (item.id === todo.id) {
           return todo;
         }
@@ -67,10 +67,10 @@ const Todo = () => {
 
       {todos.map(todo => (
         <TodoItem
-        key={todo.id}
-        todoItem={todo}
-        HandleUpdate={HandleUpdate}
-        HandleDelete={HandleDelete}
+          key={todo.id}
+          todoItem={todo}
+          HandleUpdate={HandleUpdate}
+          HandleDelete={HandleDelete}
         />
       ))}
     </>
