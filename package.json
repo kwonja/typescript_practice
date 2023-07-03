@@ -27,7 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy" : "npm run build && aws s3 sync build/ s3://wanted-intership-kwonsungmin-11th --delete --profile wanted-intership-11th"
+    "deploy": "npm run build && aws s3 sync build/ s3://wanted-intership-kwonsungmin-11th --delete --profile wanted-intership-11th"
   },
   "eslintConfig": {
     "extends": [
