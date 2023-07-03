@@ -6,6 +6,7 @@
 
 ### 배포
 - AWS S3
+- http://wanted-intership-kwonsungmin-11th.s3-website.ap-northeast-2.amazonaws.com/
 ### 추후 개선할 프로젝트 구조
 
 ```
