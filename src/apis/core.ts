@@ -17,7 +17,7 @@ const authinstance = (url: string) => {
     baseURL: url,
     headers: {
       'Content-Type': 'application/json',
-       Authorization: `Bearer ${getLocalStorageToken()}`,
+      Authorization: `Bearer ${getLocalStorageToken()}`,
     },
   });
 };
