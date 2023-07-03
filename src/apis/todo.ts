@@ -1,5 +1,5 @@
 import { Authapi } from './core';
-import {Todo} from '../interface/todo'
+import { Todo } from '../interface/todo';
 export const createTodo = async (todo: string) => {
   const response = await Authapi.post('todos', { todo });
   return response;

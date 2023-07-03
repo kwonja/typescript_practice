@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react';
-import { useNavigate, useLocation,Routes,Route} from 'react-router-dom';
+import {Route,Routes,useNavigate,useLocation} from "react-router-dom";
 import './App.css';
 import Banner from './pages/home/Banner';
+import { getLocalStorageToken } from './utils/auth';
 import Main from './pages/home/Main';
 import Signup from './pages/siginup/Signup';
 import { SignIn } from './pages/siginin';
-import Todo from './pages/todo/Todo';
-import { getLocalStorageToken } from './utils/auth';
-
+import TodoList from './pages/todo/Todo';
 function App() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -18,6 +17,8 @@ function App() {
     {
     if(location.pathname ==="/signin" || location.pathname ==="/signup")
     {
+      console.log("123")
+      alert("권한이 없습니다 로그인후 들어와주세요")
       navigate("/todo")
     }
     }
@@ -36,7 +37,7 @@ function App() {
         <Route path ="/" element={<Main/>}></Route>
         <Route path="/signup" element={<Signup/>}></Route>
         <Route path="/signin" element={<SignIn/>}></Route>
-        <Route path="/todo" element={<Todo />}></Route>
+        <Route path="/todo" element={<TodoList />}></Route>
       </Routes>
     </>
   );

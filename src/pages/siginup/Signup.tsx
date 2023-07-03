@@ -26,7 +26,7 @@ const Signup = () => {
       }
       navigate('/signin');
     } else {
-      alert('로그인에 실패했습니다.');
+      alert('회원가입에 실패했습니다.');
     }
   };
   return (

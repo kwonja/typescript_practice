@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { Input, AddBtn } from '../../styles/todolist';
 import { createTodo, getTodo, deleteTodo, updateTodo } from '../../apis/todo';
 import TodoItem from './TodoItem';
-import {Todo} from '../../interface/todo'
+import { Todo } from '../../interface/todo';
 
 const TodoList = () => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -58,13 +58,13 @@ const TodoList = () => {
           <AddBtn data-testid="new-todo-add-button">추가</AddBtn>
         </form>
         {todos.map(todo => (
-        <TodoItem
-          key={todo.id}
-          todoItem={todo}
-          HandleUpdate={HandleUpdate}
-          HandleDelete={HandleDelete}
-        />
-      ))}
+          <TodoItem
+            key={todo.id}
+            todoItem={todo}
+            HandleUpdate={HandleUpdate}
+            HandleDelete={HandleDelete}
+          />
+        ))}
       </div>
     </>
   );

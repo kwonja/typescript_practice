@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { AddBtn, CheckBox, TodoFont, TodoLayer, Input } from '../../styles/todolist';
-import {Todo} from '../../interface/todo'
+import { Todo } from '../../interface/todo';
 interface TodoItemProps {
   todoItem: Todo;
   HandleUpdate: (todo: Todo) => void;
