@@ -11,5 +11,17 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: "main"
-      - run: npm ci #npm clean install
+          ref: 'main'
+      - run: npm ci #npm clean install  새로운 운영체제 까는것이기때문에 install부터 해줘야한다
+      - run: npm run test   #ci
+      - run: npm run build  #cd
+      - name: deploy to s3
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --delete
+        env:
+          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}   # 깃허브에 저장된 이름에서 값을 가져옴
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: 'ap-northeast-2'
+          SOURCE_DIR: 'build'
