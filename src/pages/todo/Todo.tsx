@@ -1,16 +1,10 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
-import { Input, AddBtn } from '../../styles/todo';
+import { Input, AddBtn } from '../../styles/todolist';
 import { createTodo, getTodo, deleteTodo, updateTodo } from '../../apis/todo';
 import TodoItem from './TodoItem';
+import {Todo} from '../../interface/todo'
 
-interface Todo {
-  id: number;
-  todo: string;
-  isCompleted: boolean;
-  userId: number;
-}
-
-const Todo = () => {
+const TodoList = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [todos, setTodos] = useState<Todo[]>([]);
 
@@ -63,9 +57,7 @@ const Todo = () => {
           />
           <AddBtn data-testid="new-todo-add-button">추가</AddBtn>
         </form>
-      </div>
-
-      {todos.map(todo => (
+        {todos.map(todo => (
         <TodoItem
           key={todo.id}
           todoItem={todo}
@@ -73,8 +65,9 @@ const Todo = () => {
           HandleDelete={HandleDelete}
         />
       ))}
+      </div>
     </>
   );
 };
 
-export default Todo;
+export default TodoList;

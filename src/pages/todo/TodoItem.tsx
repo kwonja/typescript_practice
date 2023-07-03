@@ -1,20 +1,8 @@
 import React, { useState, useRef } from 'react';
-import { AddBtn, CheckBox, Todo, TodoLayer, Input } from '../../styles/todo';
-
-interface Todo {
-  id: number;
-  todo: string;
-  isCompleted: boolean;
-  userId: number;
-}
-
+import { AddBtn, CheckBox, TodoFont, TodoLayer, Input } from '../../styles/todolist';
+import {Todo} from '../../interface/todo'
 interface TodoItemProps {
-  todoItem: {
-    isCompleted: boolean;
-    userId: number;
-    id: number;
-    todo: string;
-  };
+  todoItem: Todo;
   HandleUpdate: (todo: Todo) => void;
   HandleDelete: (id: number) => void;
 }
@@ -78,7 +66,7 @@ const TodoItem: React.FC<TodoItemProps> = ({
               defaultChecked={isCompleted}
               onChange={handleCheckbox}
             />
-            <Todo>{todo}</Todo>
+            <TodoFont>{todo}</TodoFont>
             <AddBtn data-testid="modify-button" onClick={HandleClick}>
               수정
             </AddBtn>

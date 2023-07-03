@@ -31,7 +31,7 @@ export const AddBtn = styled.button`
   margin-left: 16px;
 `;
 
-export const Todo = styled.span`
+export const TodoFont = styled.span`
   font-size: 20px;
 `;
 export const CheckBox = styled.input`

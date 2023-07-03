@@ -1,14 +1,9 @@
 import { Authapi } from './core';
+import {Todo} from '../interface/todo'
 export const createTodo = async (todo: string) => {
   const response = await Authapi.post('todos', { todo });
   return response;
 };
-interface Todo {
-  id: number;
-  todo: string;
-  isCompleted: boolean;
-  userId: number;
-}
 
 export const getTodo = async () => {
   const response = await Authapi.get('todos');
