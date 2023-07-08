@@ -4,9 +4,10 @@ import './App.css';
 import Banner from './pages/home/Banner';
 import { getLocalStorageToken } from './utils/auth';
 import Main from './pages/home/Main';
-import Signup from './pages/siginup/Signup';
+import { SignUp } from './pages/siginup';
 import { SignIn } from './pages/siginin';
 import TodoList from './pages/todo/Todo';
+import ErrorPage from './pages/home/ErrorPage';
 function App() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -30,12 +31,14 @@ function App() {
 
   return (
     <>
-      <Banner />
       <Routes>
-        <Route path="/" element={<Main />}></Route>
-        <Route path="/signup" element={<Signup />}></Route>
-        <Route path="/signin" element={<SignIn />}></Route>
-        <Route path="/todo" element={<TodoList />}></Route>
+        <Route  path="/" element={<Banner />}>
+          <Route path="/" element={<Main />}></Route>
+          <Route path="/signup" element={<SignUp  />}></Route>
+          <Route path="/signin" element={<SignIn />}></Route>
+          <Route path="/todo" element={<TodoList />}></Route>
+        </Route>
+        <Route path='*' element={<ErrorPage/>}></Route>
       </Routes>
     </>
   );

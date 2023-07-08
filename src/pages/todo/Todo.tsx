@@ -16,12 +16,13 @@ const TodoList = () => {
       inputRef.current.value = '';
     }
   };
+  
   const gettodo = useCallback(async () => {
     //어짜피 처음만 렌더링되니까 쓰는 의미는 없지만
     //todos가 바뀌기전에는 기존함수를 재사용한다는 의미로 사용해봄
     const response = await getTodo();
     setTodos(response.data);
-  }, [todos]);
+  }, []);
 
   const HandleDelete = async (id: number) => {
     setTodos(prev => prev.filter(todo => todo.id !== id));

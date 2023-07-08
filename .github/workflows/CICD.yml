@@ -14,7 +14,7 @@ jobs:
           ref: 'main'
       - run: npm ci #npm clean install  새로운 운영체제 까는것이기때문에 install부터 해줘야한다
       # - run: npm run test      #ci
-      - run: npm run build       #cd
+      - run: npm run build #cd
       - name: deploy to s3
         uses: jakejarvis/s3-sync-action@master
         with:
