@@ -32,13 +32,13 @@ function App() {
   return (
     <>
       <Routes>
-        <Route  path="/" element={<Banner />}>
+        <Route path="/" element={<Banner />}>
           <Route path="/" element={<Main />}></Route>
-          <Route path="/signup" element={<SignUp  />}></Route>
+          <Route path="/signup" element={<SignUp />}></Route>
           <Route path="/signin" element={<SignIn />}></Route>
           <Route path="/todo" element={<TodoList />}></Route>
         </Route>
-        <Route path='*' element={<ErrorPage/>}></Route>
+        <Route path="*" element={<ErrorPage />}></Route>
       </Routes>
     </>
   );

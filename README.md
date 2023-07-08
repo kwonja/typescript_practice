@@ -24,13 +24,16 @@
 ### 배포링크 http://wanted-intership-kwonsungmin-11th.s3-website.ap-northeast-2.amazonaws.com/
 
 ### 배포
+
 - aws cli 사용
 - `npm run deploy` 를 통해 빌드후 s3 버켓 자동 수정
 
 ### CI/CI 자동화
+
 - GitHub Action 사용
-- `npm run test`  과 `npm run deploy` 를 push할때 자동으로 실행되도록 설정
+- `npm run test` 과 `npm run deploy` 를 push할때 자동으로 실행되도록 설정
 - 현재 테스트 코드는 진행하지않아 yml파일에서 제외
+
 ## 추후 개선할 프로젝트 구조
 
 ```
