@@ -19,12 +19,9 @@
 
 ## 배포
 
-### AWS S3
-
 ### 배포링크 http://wanted-intership-kwonsungmin-11th.s3-website.ap-northeast-2.amazonaws.com/
 
-### 배포
-
+### AWS S3 : 빌드
 - aws cli 사용
 - `npm run deploy` 를 통해 빌드후 s3 버켓 자동 수정
 
