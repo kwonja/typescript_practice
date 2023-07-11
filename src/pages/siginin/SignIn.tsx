@@ -20,7 +20,7 @@ const SignIn = () => {
     const Login = async () => {
       const response = await login(email, password);
       if (response) {
-        if (response.status === 201) {
+        if (response.status === 200) {
           alert('로그인에 성공하셨습니다.');
           setLocalStorage(response.data.access_token);
           navigate('/todo');
