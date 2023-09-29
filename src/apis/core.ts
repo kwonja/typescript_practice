@@ -6,15 +6,15 @@ export const BASE_URL = 'http://localhost:8000/';
 
 //axios config
 const config = {
-  baseURL : BASE_URL,
+  baseURL: BASE_URL,
   headers: {
     'Content-Type': 'application/json',
   },
-}
-export const api = axios.create(config)
+};
+export const api = axios.create(config);
 export const Authapi = axios.create(config);
 
-Authapi.interceptors.request.use( (config) => {
+Authapi.interceptors.request.use(config => {
   config.headers.Authorization = `Bearer ${getLocalStorageToken()}`;
   return config;
 });

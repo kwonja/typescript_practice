@@ -7,10 +7,10 @@ export const createTodo = async (todo: string) => {
 };
 
 export const getTodo = async () => {
-  try{
+  try {
     const response = await Authapi.get('todos');
     return response;
-  }catch (err: unknown) {
+  } catch (err: unknown) {
     if (axios.isAxiosError(err)) {
       if (!err.response) {
         //이상한에러
@@ -20,8 +20,8 @@ export const getTodo = async () => {
         return err.response;
       }
     }
-}
-}
+  }
+};
 
 export const deleteTodo = async (id: number) => {
   const response = await Authapi.delete(`todos/${id}`);

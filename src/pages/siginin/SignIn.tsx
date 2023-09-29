@@ -21,11 +21,11 @@ const SignIn = () => {
       const response = await login(email, password);
       if (response) {
         if (response.status === 200) {
-          alert('로그인에 성공하셨습니다.')
+          alert('로그인에 성공하셨습니다.');
           setLocalStorage(response.data.access_token);
-          navigate('/todo')
+          navigate('/todo');
         } else if (response.status === 404) {
-          alert(response.data.message)
+          alert(response.data.message);
         }
       } else {
         alert('로그인에 실패했습니다');

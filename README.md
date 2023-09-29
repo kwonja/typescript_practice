@@ -1,6 +1,7 @@
 ## Todo 리스트 타입스크립트로 만들기
 
 ## 실행방법
+
 ```zsh
 cd typescript_pratice
 npm install

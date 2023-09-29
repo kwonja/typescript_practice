@@ -17,7 +17,7 @@ function App() {
     if (access_token) {
       //토큰이 존재할때
       if (location.pathname === '/signin' || location.pathname === '/signup') {
-        alert("로그아웃후 이용해주세요")
+        alert('로그아웃후 이용해주세요');
         navigate('/todo');
       }
     } else {
