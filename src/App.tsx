@@ -17,14 +17,12 @@ function App() {
     if (access_token) {
       //토큰이 존재할때
       if (location.pathname === '/signin' || location.pathname === '/signup') {
-        console.log('123');
         alert("로그아웃후 이용해주세요")
         navigate('/todo');
       }
     } else {
       //존재하지 않을때
       if (location.pathname === '/todo') {
-        alert('권한이 없습니다 로그인후 들어와주세요');
         navigate('/signin');
       }
     }

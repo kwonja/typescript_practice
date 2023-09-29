@@ -65,7 +65,7 @@ export default function Banner() {
       </div>
       <nav className="header">
         <NavLink className="Logo" to="/">
-          원티드 AWS 과제
+          원티드 사전 과제
         </NavLink>
         <ul>
           <NavLink to="/todo">
