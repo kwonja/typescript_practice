@@ -1,4 +1,4 @@
-## Todo 리스트 타입스크립트로 만들기
+## TODO 리스트 타입스크립트로 만들기
 
 ## 실행방법
 ```zsh
@@ -6,7 +6,6 @@ cd typescript_pratice
 npm install
 npm start
 ```
-
 ## 환경
 
 - Prettier
@@ -78,3 +77,7 @@ npm start
     └── 📂 helper
          └── 📄 validationCheck.ts
 ```
+
+
+## TODO 리스트 API 레파지토리
+https://github.com/walking-sunset/selection-task
