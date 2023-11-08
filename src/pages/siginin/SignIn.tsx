@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { login } from '../../apis/auth';
 import { setLocalStorage } from '../../utils/auth';
 import { checkEmail, checkPassword } from '../../utils/validation';
+import { Input, Label, SignBtn, SignForm, Title } from './style';
 const SignIn = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
@@ -35,31 +36,31 @@ const SignIn = () => {
   };
   return (
     <>
-      <h2>로그인페이지</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">이메일</label>
-        <input
+      <Title>로그인페이지</Title>
+      <SignForm onSubmit={handleSubmit}>
+        <Label htmlFor="email">이메일</Label>
+        <Input
           id="email"
           data-testid="email-input"
           onChange={handleEmailchange}
           placeholder="@ 포함"
         />
         <br />
-        <label htmlFor="password">비밀번호</label>
-        <input
+        <Label htmlFor="password">비밀번호</Label>
+        <Input
           id="password"
           data-testid="password-input"
           onChange={handlePasswordChange}
           placeholder="8자리이상"
         />
         <br />
-        <button
+        <SignBtn
           data-testid="signin-button"
           disabled={checkEmail(email) && checkPassword(password) ? false : true}
         >
           로그인
-        </button>
-      </form>
+        </SignBtn>
+      </SignForm>
     </>
   );
 };
